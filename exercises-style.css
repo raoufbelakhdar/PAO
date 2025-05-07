@@ -1,0 +1,411 @@
+/* Memorization Tab Styles */
+.memorization-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e293b;
+    border-radius: 16px;
+    border: 1px solid #334155;
+}
+
+.flashcard {
+    background-color: #0f172a;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.flashcard-image-container {
+    position: relative;
+    height: 300px;
+    margin: 0 auto 20px;
+    background-color: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.flashcard-code {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #3b82f6;
+}
+
+.flashcard-type {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background:linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  z-index: 2;
+}
+
+.flashcard-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.flashcard-actions {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.flashcard-feedback {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.flashcard-overlay-name {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    background: rgba(15, 23, 42, 0.301);
+    padding: 12px 0;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+/* Quiz Styles */
+.quiz-question {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #0f172a;
+    border-radius: 12px;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.quiz-option {
+    padding: 15px;
+    background-color: #0f172a;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quiz-option:hover {
+    background-color: #1e40af;
+}
+
+.quiz-option.correct {
+    background-color: #10b981;
+}
+
+.quiz-option.incorrect {
+    background-color: #ef4444;
+}
+
+.quiz-feedback {
+    min-height: 30px;
+    margin: 15px 0;
+}
+
+/* Speed Test Styles */
+.speed-display {
+    background-color: #0f172a;
+    border-radius: 16px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-code {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #3b82f6;
+}
+
+#speed-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.speed-type {
+    position: absolute;
+    top: 16px;
+    left: 40%;
+    background:linear-gradient(135deg, #3b82f6, #6366f1);
+     color: #ffffff;
+    padding:6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius:12px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    z-index: 2;
+}
+
+.speed-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.speed-input input {
+    flex-grow: 1;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: #f8fafc;
+    font-size: 1rem;
+}
+
+.speed-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0f172a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Story Challenge Styles */
+.code-sequence {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.code-bubble {
+    padding: 10px 15px;
+    background-color: #3b82f6;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.story-input {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: #f8fafc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.story-comparison-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #0f172a;
+    border-radius: 10px;
+}
+
+.story-comparison-code {
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.story-comparison-pao {
+    flex-grow: 1;
+}
+
+
+
+.flashcard-actions button,
+.flashcard-feedback button {
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.flashcard-actions button:hover,
+.flashcard-feedback button:hover {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+}
+
+.flashcard-progress {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#flashcard-progress {
+    width: 100%;
+    height: 12px;
+    border-radius: 10px;
+    appearance: none;
+}
+
+
+#next-question-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 20px auto 0;
+    display: block;
+}
+#next-question-btn:disabled {
+    background: #334155;
+    cursor: not-allowed;
+}
+
+.speed-input {
+    align-items: center;
+}
+
+.speed-stats {
+    margin-top: 10px;
+    font-weight: 500;
+    gap: 20px;
+}
+
+.speed-stats div {
+    color: #cbd5e1;
+    background-color: #1e293b;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.story-input {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.story-comparison-item {
+    background-color: #1e293b;
+    border: 1px solid #475569;
+}
+
+.story-comparison-code {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #60a5fa;
+    min-width: 50px;
+}
+
+.story-comparison-pao {
+    font-size: 1rem;
+    color: #f1f5f9;
+}
+
+button {
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Generic Controls Style for Exercises */
+.exercise-controls,
+.flashcard-controls,
+.quiz-controls,
+.speed-controls,
+.story-challenge-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+}
+
+/* Select dropdowns */
+.exercise-controls select,
+.flashcard-controls select,
+.quiz-controls select,
+.speed-controls select {
+    padding: 12px 16px;
+    font-size: 1rem;
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    appearance: none;
+    min-width: 180px;
+}
+
+/* Input fields */
+.exercise-controls input,
+.quiz-controls input,
+.story-challenge-controls input {
+    padding: 12px 16px;
+    font-size: 1rem;
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    width: 120px;
+}
+
+/* Control buttons */
+.exercise-controls button,
+.flashcard-controls button,
+.quiz-controls button,
+.speed-controls button,
+.story-challenge-controls button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.exercise-controls button:hover,
+.flashcard-controls button:hover,
+.quiz-controls button:hover,
+.speed-controls button:hover,
+.story-challenge-controls button:hover {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    transform: translateY(-2px);
+}
