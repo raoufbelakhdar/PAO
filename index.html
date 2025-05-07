@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAO System Manager</title>
+    <link rel="stylesheet" href="pao-style.css">
+    <link rel="stylesheet" href="exercises-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js"></script>
+    <script src="exercises-script.js"></script>
+</head>
+<body>
+    <h1>PAO System Manager</h1>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- In your sidebar div (pao.html) -->
+        <div class="sidebar">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="sidebar-header">PAO System</div>
+            <a href="#" class="sidebar-tab active" onclick="openTab('viewer')">
+                <i class="fas fa-eye"></i>
+                <span>PAO Viewer</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('phone-memorization')">
+                <i class="fas fa-phone"></i>
+                <span>Phone Memorization</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('birthdays')">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthdays</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('historical-dates')">
+                <i class="fas fa-landmark"></i>
+                <span>Historical Dates</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('characters')">
+                <i class="fas fa-user"></i>
+                <span>Manage Characters</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('actions')">
+                <i class="fas fa-running"></i>
+                <span>Manage Actions</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('objects')">
+                <i class="fas fa-cube"></i>
+                <span>Manage Objects</span>
+            </a>
+            <a href="#" class="sidebar-tab" onclick="openTab('data')">
+                <i class="fas fa-database"></i>
+                <span>Data Management</span>
+            </a>
+            
+            <!-- Exercises Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-header">
+                    <i class="fas fa-brain"></i>
+                    <span>Exercises</span>
+                </div>
+                <a href="#" class="sidebar-tab" onclick="openTab('flashcards')">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Flashcards</span>
+                </a>
+                <a href="#" class="sidebar-tab" onclick="openTab('recall-quiz')">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Recall Quiz</span>
+                </a>
+                <a href="#" class="sidebar-tab" onclick="openTab('speed-test')">
+                    <i class="fas fa-stopwatch"></i>
+                    <span>Speed Test</span>
+                </a>
+                <a href="#" class="sidebar-tab" onclick="openTab('story-challenge')">
+                    <i class="fas fa-book"></i>
+                    <span>Story Challenge</span>
+                </a>
+            </div>
+        </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- PAO Viewer Tab -->
+        <div id="viewer" class="tab-content active">
+            <div class="pao-container">
+                <!-- Character Card -->
+                <div class="card character-card">
+                    <div class="card-badge">Character</div>
+                    <div class="card-image" id="character-image">
+                        <img id="character-img" src="" alt="Character">
+                    </div>
+                    <div class="filter"></div>
+                    <div class="info-card">
+                    <div class="card-name" id="character-name">Character Name</div>
+                        <div class="card-footer">
+                        <input type="text" min="0" max="99" placeholder="00-99" id="character-code">
+                        <div id="character-error" class="error-message"></div>
+                        </div>  
+                    </div>
+                    
+                </div>
+
+                <!-- Action Card -->
+                <div class="card action-card">
+                    <div class="card-badge">Action</div>
+                    <div class="card-image" id="action-image">
+                        <img id="action-img" src="" alt="action">
+                    </div>
+                    <div class="filter"></div>
+                    <div class="info-card">
+                        <div class="card-name" id="action-name">Action Name</div>
+                        <div class="card-footer">
+                        <input type="text" min="0" max="99" placeholder="00-99" id="action-code">
+                        <div id="action-error" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Object Card -->
+                <div class="card object-card">
+                    <div class="card-badge">Object</div>
+                    <div class="card-image" id="object-image">
+                        <img id="object-img" src="" alt="object">
+                    </div>
+                    <div class="filter"></div>
+                    <div class="info-card">
+                        <div class="card-name" id="object-name">Object Name</div>
+                        <div class="card-footer">
+                        <input type="text" min="0" max="99" placeholder="00-99" id="object-code">
+                        <div id="object-error" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Phone Memorization Tab -->
+        <div id="phone-memorization" class="tab-content">
+            <div class="phone-memorization">
+                <h2>Phone Number Memorization</h2>
+                <div class="form-group">
+                    <input type="text" id="phone-number" placeholder="Enter phone number (digits only)" maxlength="20">
+                    <button onclick="generateStory()">Generate Story</button>
+                </div>
+                <div id="story-container" style="display: none;">
+                    <h3>Your Story:</h3>
+                    <div id="generated-story" class="story-text" onclick="showStoryCards()"></div>
+                    <div id="story-cards" class="pao-container" style="display: none; margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Birthdays Tab -->
+        <div id="birthdays" class="tab-content">
+            <div class="data-management">
+                <h2>Birthday Memorization</h2>
+                <div class="form-group">
+                    <label for="birthday-name">Name</label>
+                    <input type="text" id="birthday-name" placeholder="Person's name">
+                </div>
+                <div class="form-group">
+                    <label for="birthday-day">Day</label>
+                    <input type="number" id="birthday-day" min="1" max="31" placeholder="DD">
+                </div>
+                <div class="form-group">
+                    <label for="birthday-month">Month</label>
+                    <input type="number" id="birthday-month" min="1" max="12" placeholder="MM">
+                </div>
+                <div class="form-group">
+                    <label for="birthday-image">Image URL</label>
+                    <input type="text" id="birthday-image" placeholder="https://example.com/image.jpg">
+                    <input type="file" id="birthday-image-upload" accept="image/*" class="hidden">
+                    <button onclick="document.getElementById('birthday-image-upload').click()">Upload Image</button>
+                </div>
+                <div class="form-actions">
+                    <button onclick="saveBirthday()">Save Birthday</button>
+                    <button onclick="generateBirthdayStory()">Generate Story</button>
+                </div>
+                <div class="item-list" id="birthday-list"></div>
+                <div id="birthday-story-container" style="display: none;">
+                    <h3>Your Story:</h3>
+                    <div id="generated-birthday-story" class="story-text"></div>
+                    <div id="birthday-story-cards" class="pao-container" style="display: none; margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historical Dates Tab -->
+        <div id="historical-dates" class="tab-content">
+            <div class="data-management">
+                <h2>Historical Date Memorization</h2>
+                <div class="form-group">
+                    <label for="event-name">Event Name</label>
+                    <input type="text" id="event-name" placeholder="Event name">
+                </div>
+                <div class="form-group">
+                    <label for="event-day">Day</label>
+                    <input type="number" id="event-day" min="1" max="31" placeholder="DD">
+                </div>
+                <div class="form-group">
+                    <label for="event-month">Month</label>
+                    <input type="number" id="event-month" min="1" max="12" placeholder="MM">
+                </div>
+                <div class="form-group">
+                    <label for="event-year">Year</label>
+                    <input type="number" id="event-year" min="1000" max="9999" placeholder="YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="event-image">Image URL</label>
+                    <input type="text" id="event-image" placeholder="https://example.com/image.jpg">
+                    <input type="file" id="event-image-upload" accept="image/*" class="hidden">
+                    <button onclick="document.getElementById('event-image-upload').click()">Upload Image</button>
+                </div>
+                <div class="form-actions">
+                    <button onclick="saveHistoricalDate()">Save Date</button>
+                    <button onclick="generateHistoricalDateStory()">Generate Story</button>
+                </div>
+                <div class="item-list" id="historical-date-list"></div>
+                <div id="historical-story-container" style="display: none;">
+                    <h3>Your Story:</h3>
+                    <div id="generated-historical-story" class="story-text"></div>
+                    <div id="historical-story-cards" class="pao-container" style="display: none; margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="flashcards" class="tab-content">
+            <div class="memorization-container">
+                <h2>PAO Flashcards</h2>
+                <div class="flashcard-controls">
+                    <select id="flashcard-mode">
+                        <option value="all">All Items</option>
+                        <option value="characters">Characters Only</option>
+                        <option value="actions">Actions Only</option>
+                        <option value="objects">Objects Only</option>
+                        <option value="random">Random Mix</option>
+                    </select>
+                    <button onclick="startFlashcards()">Start Flashcards</button>
+                </div>
+                
+                <div id="flashcard-area" style="display: none;">
+                    <div class="flashcard">
+                        <div class="flashcard-image-container">
+                            <div id="flashcard-type" class="flashcard-type"></div>
+                            <img id="flashcard-image" src="">
+                            <div id="flashcard-name" class="flashcard-overlay-name"></div>
+                        </div>
+                        <div class="flashcard-info">
+                            <div id="flashcard-code" class="flashcard-code"></div>
+                            
+                        </div>
+                        
+                        <div class="flashcard-actions">
+                            <button onclick="revealFlashcard()">Reveal Answer</button>
+                            <button onclick="nextFlashcard()">Next Card</button>
+                        </div>
+                        <div class="flashcard-feedback">
+                            <button onclick="rateFlashcard(1)">😞 Hard</button>
+                            <button onclick="rateFlashcard(2)">😐 Okay</button>
+                            <button onclick="rateFlashcard(3)">😊 Easy</button>
+                        </div>
+                    </div>
+                    <div class="flashcard-progress">
+                        <progress id="flashcard-progress" value="0" max="100"></progress>
+                        <span id="flashcard-count">0/0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="recall-quiz" class="tab-content">
+            <div class="memorization-container">
+                <h2>PAO Recall Quiz</h2>
+                <div class="quiz-controls">
+                    <select id="quiz-type">
+                        <option value="code-to-pao">Code → PAO</option>
+                        <option value="pao-to-code">PAO → Code</option>
+                        <option value="mixed">Mixed Questions</option>
+                    </select>
+                    <input type="number" id="quiz-length" min="5" max="50" value="10">
+                    <button onclick="startQuiz()">Start Quiz</button>
+                </div>
+                
+                <div id="quiz-area" style="display: none;">
+                    <div id="quiz-question" class="quiz-question"></div>
+                    <div id="quiz-options" class="quiz-options"></div>
+                    <div class="quiz-feedback" id="quiz-feedback"></div>
+                    <div class="quiz-progress">
+                        <progress id="quiz-progress" value="0" max="100"></progress>
+                        <span id="quiz-count">0/0</span>
+                    </div>
+                    <button id="next-question-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                </div>
+                
+                <div id="quiz-results" style="display: none;">
+                    <h3>Quiz Results</h3>
+                    <div id="quiz-score"></div>
+                    <div id="quiz-missed"></div>
+                    <button onclick="startQuiz()">Try Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="speed-test" class="tab-content">
+            <div class="memorization-container">
+                <h2>PAO Speed Recognition</h2>
+                <div class="speed-controls">
+                    <select id="speed-difficulty">
+                        <option value="easy">Easy (5s)</option>
+                        <option value="medium">Medium (3s)</option>
+                        <option value="hard">Hard (1s)</option>
+                    </select>
+                    <button onclick="startSpeedTest()">Start Test</button>
+                </div>
+                
+                <div id="speed-area" style="display: none;">
+                    <div id="speed-display" class="speed-display" style="position: relative;">
+                        <div id="speed-code" class="speed-code"></div>
+                        <img id="speed-image" src="">
+                        <div id="speed-name" class="flashcard-overlay-name"></div>
+                        <div id="speed-type" class="speed-type"></div>
+                    </div>
+                    <div class="speed-input">
+                        <input type="text" id="speed-answer" placeholder="Enter code (00-99)" maxlength="2">
+                    </div>
+                    <div class="speed-stats">
+                        <div>Correct: <span id="speed-correct">0</span></div>
+                        <div>Wrong: <span id="speed-wrong">0</span></div>
+                        <div>Time: <span id="speed-time">0</span>s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="story-challenge" class="tab-content">
+            <div class="memorization-container">
+                <h2>Story Creation Challenge</h2>
+                <div class="story-challenge-controls">
+                    <input type="number" id="story-length" min="3" max="20" value="5">
+                    <button onclick="generateChallenge()">Generate Challenge</button>
+                </div>
+                
+                <div id="story-challenge-area" style="display: none;">
+                    <div class="code-sequence" id="code-sequence"></div>
+                    <div style="margin-top: 20px;">
+                        <button onclick="showExpectedItems()">Show Expected Items</button>
+                    </div>
+                    
+                    <div id="story-review" style="display: none; margin-top: 30px;">
+                        <h3>Self-Check Your Memory</h3>
+                        <div id="story-comparison"></div>
+                    </div>
+                                        
+                    <div id="story-review" style="display: none;">
+                        <h3>Your Story vs. PAO Items</h3>
+                        <div id="story-comparison"></div>
+                        <button onclick="generateChallenge()">Try Another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage Characters Tab -->
+        <div id="characters" class="tab-content">
+            <div class="data-management">
+                <h2>Manage Characters</h2>
+                <div class="form-group">
+                    <label for="edit-character-code">Code (00-99)</label>
+                    <input type="number" min="0" max="99" id="edit-character-code" placeholder="00">
+                </div>
+                <div class="form-group">
+                    <label for="edit-character-name">Name</label>
+                    <input type="text" id="edit-character-name" placeholder="Character name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-character-image">Image URL</label>
+                    <input type="text" id="edit-character-image" placeholder="https://example.com/image.jpg">
+                    <input type="file" id="edit-character-image-upload" accept="image/*" class="hidden">
+                    <button onclick="document.getElementById('edit-character-image-upload').click()">Upload Image</button>
+                    <small>Or paste a URL above</small>
+                </div>
+                <div class="form-actions">
+                    <button onclick="saveCharacter()">Save Character</button>
+                    <button onclick="clearCharacterForm()">Clear</button>
+                </div>
+                <div class="item-list" id="character-list">
+                    <!-- Character items will be listed here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Manage Actions Tab -->
+        <div id="actions" class="tab-content">
+            <div class="data-management">
+                <h2>Manage Actions</h2>
+                <div class="form-group">
+                    <label for="edit-action-code">Code (00-99)</label>
+                    <input type="number" min="0" max="99" id="edit-action-code" placeholder="00">
+                </div>
+                <div class="form-group">
+                    <label for="edit-action-name">Name</label>
+                    <input type="text" id="edit-action-name" placeholder="Action name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-action-image">Image URL</label>
+                    <input type="text" id="edit-action-image" placeholder="https://example.com/image.jpg">
+                    <input type="file" id="edit-action-image-upload" accept="image/*" class="hidden">
+                    <button onclick="document.getElementById('edit-action-image-upload').click()">Upload Image</button>
+                    <small>Or paste a URL above</small>
+                </div>
+                <div class="form-actions">
+                    <button onclick="saveAction()">Save Action</button>
+                    <button onclick="clearActionForm()">Clear</button>
+                </div>
+                <div class="item-list" id="action-list">
+                    <!-- Action items will be listed here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Manage Objects Tab -->
+        <div id="objects" class="tab-content">
+            <div class="data-management">
+                <h2>Manage Objects</h2>
+                <div class="form-group">
+                    <label for="edit-object-code">Code (00-99)</label>
+                    <input type="number" min="0" max="99" id="edit-object-code" placeholder="00">
+                </div>
+                <div class="form-group">
+                    <label for="edit-object-name">Name</label>
+                    <input type="text" id="edit-object-name" placeholder="Object name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-object-image">Image URL</label>
+                    <input type="text" id="edit-object-image" placeholder="https://example.com/image.jpg">
+                    <input type="file" id="edit-object-image-upload" accept="image/*" class="hidden">
+                    <button onclick="document.getElementById('edit-object-image-upload').click()">Upload Image</button>
+                    <small>Or paste a URL above</small>
+                </div>
+                <div class="form-actions">
+                    <button onclick="saveObject()">Save Object</button>
+                    <button onclick="clearObjectForm()">Clear</button>
+                </div>
+                <div class="item-list" id="object-list">
+                    <!-- Object items will be listed here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data Management Tab -->
+        <div id="data" class="tab-content">
+            <div class="data-management">
+                <h2>Data Management</h2>
+                
+                <div class="data-export-import">
+                    <h3>Export Data</h3>
+                    <p>Export your PAO system data as a JSON file:</p>
+                    <button onclick="exportData()">Export All Data</button>
+                    
+                    <h3>Import Data</h3>
+                    <p>Import PAO system data from a JSON file:</p>
+                    <input type="file" id="import-file" accept=".json">
+                    <button onclick="importData()">Import Data</button>
+                    <div id="import-status"></div>
+                    
+                    <h3>Reset Data</h3>
+                    <p>Warning: This will delete all your current data!</p>
+                    <button onclick="resetData()" style="background-color: #f44336;">Reset All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            
+            // Optional: Add overlay when menu is open
+            const overlay = document.querySelector('.mobile-menu-overlay');
+            if (overlay) {
+                overlay.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
