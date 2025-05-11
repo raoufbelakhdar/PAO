@@ -3,7 +3,6 @@
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     margin: 0;
-    padding: 20px 10px;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #f8fafc;
     min-height: 100vh;
@@ -11,12 +10,13 @@ body {
     line-height: 1.5;
 }
 
-h1 {
+.head-title {
     font-size: 2rem;
     margin: 20px 0;
     text-align: center;
     font-weight: 700;
     color: #ffffff;
+    display: none;
 }
 
 .tabs {
@@ -48,9 +48,8 @@ h1 {
 
 .tab-content {
     display: none;
-    padding: 20px 0;
     margin: auto;
-    width: 80%;
+    /* width: 80%; */
 }
 
 .tab-content.active {
@@ -59,10 +58,10 @@ h1 {
 
 .pao-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 10px;
     justify-content: center;
 }
 
@@ -253,7 +252,7 @@ h1 {
     border-radius: 20px;
     overflow: hidden;
     width: 320px;
-    height: 400px;
+    height: 30vh;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -288,10 +287,10 @@ h1 {
 .card-name {
     text-align: center;
     padding: 16px 8px;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    line-height: normal;
     font-weight: 700;
     color: #e2e8f0;
-    margin-bottom: 30px;
 }
 
 /* Footer with input and error */
@@ -300,6 +299,10 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .card-footer input {
@@ -320,9 +323,10 @@ h1 {
 
 .info-card{
   position: absolute;
-  bottom: 40%;
+  bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
+  width: 80%;
 }
 .filter{
     position: absolute;
@@ -502,7 +506,7 @@ linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.6) 100%);
     position: fixed;
     top: 0;
     left: -100%;
-    width: 80%;
+    width: 160px;
     max-width: 300px;
     height: 100vh;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -519,6 +523,10 @@ linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.6) 100%);
     overflow: initial;
 }
 
+.sidebar.active.collapsed .sidebar-section-header {
+    display: none;
+}
+
 .sidebar-header {
     color: #ffffff;
     font-size: 1.25rem;
@@ -531,7 +539,7 @@ linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.6) 100%);
 .sidebar-tab {
     display: block;
     padding: 12px 16px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: #1e293b;
     color: #cbd5e1;
     border-radius: 10px;
@@ -539,7 +547,7 @@ linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.6) 100%);
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .sidebar-tab.active {
@@ -786,8 +794,8 @@ button, .form-actions button {
     body {
         padding: 40px 20px;
     }
-    
-    h1 {
+    .head-title {
+        display: block;
         font-size: 2.5rem;
         margin-bottom: 30px;
     }
@@ -800,7 +808,7 @@ button, .form-actions button {
     .sidebar {
         position: fixed;
         left: 0;
-        width: 250px;
+        width: 160px;
         overflow: initial;
     }
     
@@ -819,10 +827,12 @@ button, .form-actions button {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        margin-top: 0;
     }
     
     .card {
         width: 320px;
+        height: 400px;
     }
     
     /* Form controls - normal width */
@@ -885,7 +895,7 @@ button, .form-actions button {
     
     /* Adjust sidebar width if needed */
     .sidebar {
-        width: 280px;
+        width: 160px;
         overflow: initial;
     }
     
@@ -911,4 +921,84 @@ button, .form-actions button {
 .mobile-menu-overlay.active {
     opacity: 1;
     pointer-events: auto;
+}
+
+
+/* Stack container for mobile */
+.pao-stack-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust based on your needs */
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.pao-stack-card {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  transition: all 0.3s ease;
+  transform-origin: center top;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Default stacked position */
+.pao-stack-card:nth-child(1) { /* Character card */
+  top: 0;
+  transform: scale(0.95);
+  z-index: 3;
+}
+
+.pao-stack-card:nth-child(2) { /* Action card */
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  z-index: 2;
+}
+
+.pao-stack-card:nth-child(3) { /* Object card */
+  top: 80%;
+  transform: translateY(-20%) scale(0.85);
+  z-index: 1;
+}
+
+/* Expanded state */
+.pao-stack-card.expanded {
+  top: 0 !important;
+  transform: scale(1) !important;
+  z-index: 10 !important;
+  height: auto;
+}
+
+/* Collapsed state for other cards when one is expanded */
+.pao-stack-container.has-expanded .pao-stack-card:not(.expanded) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Adjust card sizing for mobile stack */
+@media (max-width: 767.98px) {
+  .pao-stack-card {
+    height: 250px; /* Adjust based on your needs */
+  }
+  
+  .pao-stack-card.expanded {
+    height: 450px; /* Expanded height */
+  }
+  
+  .pao-desktop-container {
+    display: none !important;
+  }
+}
+
+/* Show desktop layout on larger screens */
+@media (min-width: 768px) {
+  .pao-stack-container {
+    display: none !important;
+  }
+  
+  .pao-desktop-container {
+    display: flex !important;
+  }
 }

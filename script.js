@@ -1199,3 +1199,4 @@ window.onload = function() {
         document.querySelector('.sidebar').classList.add('collapsed');
     }
 };
+

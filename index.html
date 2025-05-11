@@ -11,25 +11,25 @@
     <script src="exercises-script.js"></script>
 </head>
 <body>
-    <h1>PAO System Manager</h1>
-
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-    </button>
+    <div class="top-navbar">
+        <h1 class="head-title">PAO System Manager</h1>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
 
     <!-- In your sidebar div (pao.html) -->
         <div class="sidebar">
             <button class="toggle-sidebar" onclick="toggleSidebar()">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <div class="sidebar-header">PAO System</div>
             <a href="#" class="sidebar-tab active" onclick="openTab('viewer')">
                 <i class="fas fa-eye"></i>
                 <span>PAO Viewer</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('phone-memorization')">
                 <i class="fas fa-phone"></i>
-                <span>Phone Memorization</span>
+                <span>Phone</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('birthdays')">
                 <i class="fas fa-birthday-cake"></i>
@@ -37,23 +37,23 @@
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('historical-dates')">
                 <i class="fas fa-landmark"></i>
-                <span>Historical Dates</span>
+                <span>Dates</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('characters')">
                 <i class="fas fa-user"></i>
-                <span>Manage Characters</span>
+                <span>Characters</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('actions')">
                 <i class="fas fa-running"></i>
-                <span>Manage Actions</span>
+                <span>Actions</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('objects')">
                 <i class="fas fa-cube"></i>
-                <span>Manage Objects</span>
+                <span>Objects</span>
             </a>
             <a href="#" class="sidebar-tab" onclick="openTab('data')">
                 <i class="fas fa-database"></i>
-                <span>Data Management</span>
+                <span>Data</span>
             </a>
             
             <!-- Exercises Section -->
@@ -68,7 +68,7 @@
                 </a>
                 <a href="#" class="sidebar-tab" onclick="openTab('recall-quiz')">
                     <i class="fas fa-question-circle"></i>
-                    <span>Recall Quiz</span>
+                    <span>Quiz</span>
                 </a>
                 <a href="#" class="sidebar-tab" onclick="openTab('speed-test')">
                     <i class="fas fa-stopwatch"></i>
@@ -76,7 +76,7 @@
                 </a>
                 <a href="#" class="sidebar-tab" onclick="openTab('story-challenge')">
                     <i class="fas fa-book"></i>
-                    <span>Story Challenge</span>
+                    <span>Story</span>
                 </a>
             </div>
         </div>
@@ -95,12 +95,12 @@
                     <div class="filter"></div>
                     <div class="info-card">
                     <div class="card-name" id="character-name">Character Name</div>
-                        <div class="card-footer">
-                        <input type="text" min="0" max="99" placeholder="00-99" id="character-code">
-                        <div id="character-error" class="error-message"></div>
-                        </div>  
+                         
                     </div>
-                    
+                    <div class="card-footer">
+                        <input type="number" min="0" max="99" placeholder="00-99" id="character-code">
+                        <div id="character-error" class="error-message"></div>
+                    </div> 
                 </div>
 
                 <!-- Action Card -->
@@ -112,10 +112,11 @@
                     <div class="filter"></div>
                     <div class="info-card">
                         <div class="card-name" id="action-name">Action Name</div>
-                        <div class="card-footer">
-                        <input type="text" min="0" max="99" placeholder="00-99" id="action-code">
+                        
+                    </div>
+                    <div class="card-footer">
+                        <input type="number" min="0" max="99" placeholder="00-99" id="action-code">
                         <div id="action-error" class="error-message"></div>
-                        </div>
                     </div>
                 </div>
 
@@ -128,10 +129,11 @@
                     <div class="filter"></div>
                     <div class="info-card">
                         <div class="card-name" id="object-name">Object Name</div>
-                        <div class="card-footer">
-                        <input type="text" min="0" max="99" placeholder="00-99" id="object-code">
+                        
+                    </div>
+                    <div class="card-footer">
+                        <input type="number" min="0" max="99" placeholder="00-99" id="object-code">
                         <div id="object-error" class="error-message"></div>
-                        </div>
                     </div>
                 </div>
             </div>
