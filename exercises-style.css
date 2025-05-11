@@ -2,7 +2,6 @@
 .memorization-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
     background-color: #1e293b;
     border-radius: 16px;
     border: 1px solid #334155;
@@ -11,7 +10,6 @@
 .flashcard {
     background-color: #0f172a;
     border-radius: 16px;
-    padding: 30px;
     text-align: center;
     margin: 20px 0;
     position: relative;
@@ -99,7 +97,6 @@
 
 .quiz-options {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -408,4 +405,25 @@ button:hover {
 .story-challenge-controls button:hover {
     background: linear-gradient(135deg, #3b82f6, #6366f1);
     transform: translateY(-2px);
+}
+
+h2{
+    text-align: center;
+}
+
+
+@media (min-width: 768px) {
+    h2{
+        display: block;
+        text-align: left;
+    }
+    .memorization-container{
+        padding: 20px;
+    }   
+    .flashcard{
+        padding: 30px;
+    }
+    .quiz-options{
+        grid-template-columns: 1fr 1fr;
+    }
 }

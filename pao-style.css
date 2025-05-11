@@ -788,6 +788,10 @@ button, .form-actions button {
 .item-actions button {
     flex: 1;
 }
+#quiz-area{
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
 
 /* Media queries for larger screens */
 @media (min-width: 768px) {

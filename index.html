@@ -234,17 +234,6 @@
         <div id="flashcards" class="tab-content">
             <div class="memorization-container">
                 <h2>PAO Flashcards</h2>
-                <div class="flashcard-controls">
-                    <select id="flashcard-mode">
-                        <option value="all">All Items</option>
-                        <option value="characters">Characters Only</option>
-                        <option value="actions">Actions Only</option>
-                        <option value="objects">Objects Only</option>
-                        <option value="random">Random Mix</option>
-                    </select>
-                    <button onclick="startFlashcards()">Start Flashcards</button>
-                </div>
-                
                 <div id="flashcard-area" style="display: none;">
                     <div class="flashcard">
                         <div class="flashcard-image-container">
@@ -258,36 +247,38 @@
                         </div>
                         
                         <div class="flashcard-actions">
-                            <button onclick="revealFlashcard()">Reveal Answer</button>
+                            <button onclick="revealFlashcard()">Answer</button>
                             <button onclick="nextFlashcard()">Next Card</button>
                         </div>
-                        <div class="flashcard-feedback">
+                        <!-- <div class="flashcard-feedback">
                             <button onclick="rateFlashcard(1)">😞 Hard</button>
                             <button onclick="rateFlashcard(2)">😐 Okay</button>
                             <button onclick="rateFlashcard(3)">😊 Easy</button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="flashcard-progress">
                         <progress id="flashcard-progress" value="0" max="100"></progress>
                         <span id="flashcard-count">0/0</span>
                     </div>
                 </div>
+                <div class="flashcard-controls">
+                    <select id="flashcard-mode">
+                        <option value="all">All Items</option>
+                        <option value="characters">Characters Only</option>
+                        <option value="actions">Actions Only</option>
+                        <option value="objects">Objects Only</option>
+                        <option value="random">Random Mix</option>
+                    </select>
+                    <button onclick="startFlashcards()">Start Flashcards</button>
+                </div>
+                
+                
             </div>
         </div>
 
         <div id="recall-quiz" class="tab-content">
             <div class="memorization-container">
                 <h2>PAO Recall Quiz</h2>
-                <div class="quiz-controls">
-                    <select id="quiz-type">
-                        <option value="code-to-pao">Code → PAO</option>
-                        <option value="pao-to-code">PAO → Code</option>
-                        <option value="mixed">Mixed Questions</option>
-                    </select>
-                    <input type="number" id="quiz-length" min="5" max="50" value="10">
-                    <button onclick="startQuiz()">Start Quiz</button>
-                </div>
-                
                 <div id="quiz-area" style="display: none;">
                     <div id="quiz-question" class="quiz-question"></div>
                     <div id="quiz-options" class="quiz-options"></div>
@@ -305,20 +296,23 @@
                     <div id="quiz-missed"></div>
                     <button onclick="startQuiz()">Try Again</button>
                 </div>
+                <div class="quiz-controls">
+                    <select id="quiz-type">
+                        <option value="code-to-pao">Code → PAO</option>
+                        <option value="pao-to-code">PAO → Code</option>
+                        <option value="mixed">Mixed Questions</option>
+                    </select>
+                    <input type="number" id="quiz-length" min="5" max="50" value="10">
+                    <button onclick="startQuiz()">Start Quiz</button>
+                </div>
+                
+                
             </div>
         </div>
 
         <div id="speed-test" class="tab-content">
             <div class="memorization-container">
                 <h2>PAO Speed Recognition</h2>
-                <div class="speed-controls">
-                    <select id="speed-difficulty">
-                        <option value="easy">Easy (5s)</option>
-                        <option value="medium">Medium (3s)</option>
-                        <option value="hard">Hard (1s)</option>
-                    </select>
-                    <button onclick="startSpeedTest()">Start Test</button>
-                </div>
                 
                 <div id="speed-area" style="display: none;">
                     <div id="speed-display" class="speed-display" style="position: relative;">
@@ -328,13 +322,22 @@
                         <div id="speed-type" class="speed-type"></div>
                     </div>
                     <div class="speed-input">
-                        <input type="text" id="speed-answer" placeholder="Enter code (00-99)" maxlength="2">
+                        <input type="number" id="speed-answer" placeholder="Enter code (00-99)" maxlength="2">
                     </div>
                     <div class="speed-stats">
                         <div>Correct: <span id="speed-correct">0</span></div>
                         <div>Wrong: <span id="speed-wrong">0</span></div>
                         <div>Time: <span id="speed-time">0</span>s</div>
                     </div>
+                </div>
+
+                <div class="speed-controls">
+                    <select id="speed-difficulty">
+                        <option value="easy">Easy (5s)</option>
+                        <option value="medium">Medium (3s)</option>
+                        <option value="hard">Hard (1s)</option>
+                    </select>
+                    <button onclick="startSpeedTest()">Start Test</button>
                 </div>
             </div>
         </div>
